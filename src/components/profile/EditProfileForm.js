@@ -29,21 +29,21 @@ const EditProfileForm = () => {
   return (
     <CardContent title='Edit Profile'>
       <form action='#'>
-        <div className='form-group '>
+        <div className='form-group'>
           <label htmlFor='name' className='form-label'>
             Name
           </label>
           <input type='text' className='form-control' />
         </div>
 
-        <div className='form-group '>
+        <div className='form-group'>
           <label htmlFor='email' className='form-label'>
             Email
           </label>
           <input type='email' className='form-control' />
         </div>
 
-        <div className='form-group '>
+        <div className='form-group'>
           <label htmlFor='address' className='form-label'>
             Address
           </label>
@@ -71,11 +71,6 @@ const EditProfileForm = () => {
               <img
                 src={image ? image : UserIcon}
                 className='text-center'
-                style={{
-                  width: "185px",
-                  height: "185px",
-                  borderRadius: "5px"
-                }}
                 alt='Default display from flaticon'
               ></img>
             </div>
@@ -93,7 +88,7 @@ const EditProfileForm = () => {
         </div>
 
         <div className='form-group'>
-          <button className='btn btn-success' style={{ marginLeft: "25%" }}>
+          <button className='btn btn-success parallel'>
             <span className='fas fa-check text-white'></span> Update
           </button>
         </div>

@@ -17,7 +17,7 @@ const Main = ({ children }) => {
 
       <div
         className='overflow-hidden overflow-y-hidden transition-all duration-200 ease-in'
-        style={{ marginLeft: isOpen ? "290px" : "0px", padding: "10px 20px" }}
+        style={{ marginLeft: isOpen ? "290px" : "0px" }}
       >
         <div className='mt-20 p-8'>{children}</div>
       </div>

@@ -1,11 +1,23 @@
-import React, { useContext } from "react"
+import React, { useState, useRef, useContext } from "react"
 import { Link } from "react-router-dom"
 
 // Context
 import LayoutContext from "../../context/layout/LayoutContext"
 
 const Navbar = () => {
+  const dropdownRef = useRef()
+  const dropdownButtonRef = useRef()
+  const [toggleDropdown, setToggleDropdown] = useState(false)
   const { isOpen, toggleSidebar } = useContext(LayoutContext)
+
+  window.onclick = (e) => {
+    if (
+      e.target !== dropdownRef.current &&
+      e.target !== dropdownButtonRef.current
+    ) {
+      setToggleDropdown(false)
+    }
+  }
 
   return (
     <nav
@@ -38,14 +50,19 @@ const Navbar = () => {
           <li className='ml-6'>
             <div className='dropdown-profile relative'>
               <button
+                ref={dropdownButtonRef}
                 type='button'
                 className='border-none outline-none'
                 style={{ outlineColor: "white" }}
+                onClick={() => setToggleDropdown(!toggleDropdown)}
               >
                 John Doe
               </button>
               <div
-                className='absolute flex flex-col justify-between items-center rounded bg-primary text-white p-6 h-64 w-64 transition duration-200 mt-3 dropdown-profile-box shadow-2xl'
+                ref={dropdownRef}
+                className={`absolute flex flex-col justify-between items-center rounded bg-primary text-white p-6 h-64 w-64 transition duration-200 mt-3 dropdown-profile-box ${
+                  toggleDropdown ? "active" : ""
+                } shadow-2xl`}
                 style={{ right: "0" }}
               >
                 {/* User Photo Profile */}
@@ -54,13 +71,13 @@ const Navbar = () => {
                 <div className='mr-2 w-full flex justify-between'>
                   <Link
                     to='/profile'
-                    className='border p-2 transition duration-300 ease-in-out hover:text-primary hover:bg-white'
+                    className='border p-2 transition inline-block duration-300 ease-in-out hover:text-primary hover:bg-white'
                   >
                     Profile
                   </Link>
                   <a
                     href='#!'
-                    className='border p-2 transition duration-300 ease-in-out hover:text-primary hover:bg-white'
+                    className='border p-2 transition inline-block duration-300 ease-in-out hover:text-primary hover:bg-white'
                   >
                     Logout
                   </a>
