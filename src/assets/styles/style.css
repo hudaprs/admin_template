@@ -5,6 +5,7 @@
 /* Global */
 body {
   background-color: #f6f7fb;
+  color: #4a4a4a;
 }
 
 /* Sidebar Items Icon */
@@ -22,16 +23,58 @@ body {
 
 /* Navbar */
 #navbar .dropdown-profile .dropdown-profile-box {
-  pointer-events: none;
-}
-
-#navbar .dropdown-profile button:focus + div {
-  transform: translateY(0);
-  pointer-events: all;
-  opacity: 1;
-}
-
-#navbar .dropdown-profile .dropdown-profile-box {
   opacity: 0;
   transform: translateY(-10px);
+}
+
+#navbar .dropdown-profile button:focus + .dropdown-profile-box {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: -10;
+}
+
+/* Form */
+.form-group {
+  @apply flex;
+  @apply items-start;
+  @apply mb-4;
+}
+
+.form-label {
+  width: 25%;
+}
+
+.form-control {
+  border-radius: 5px;
+  padding: 0px 10px;
+  border: 1px #dcdcdc solid;
+  height: 32px;
+  width: 512px;
+}
+
+.form-control:focus {
+  outline-color: #ccc;
+}
+
+.image-box {
+  border: 1px #dcdcdc solid;
+  width: 185px;
+  height: 185px;
+  border-radius: 5px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  border: 1px #dcdcdc solid;
+  background-color: #fff;
+  width: 125px;
+  height: 36px;
+  border-radius: 5px;
+}
+
+.btn-success {
+  background-color: #00bd88;
+  color: #fff;
+  border-color: #00bd88;
 }

@@ -7,12 +7,14 @@ import LayoutState from "../../context/layout/LayoutState"
 
 // Routes
 import HomeRoute from "../routes/HomeRoute"
+import ProfileRoute from "../routes/ProfileRoute"
 
 const App = () => {
   return (
     <LayoutState>
       <Router>
         <Route exact component={HomeRoute} />
+        <Route exact component={ProfileRoute} />
       </Router>
     </LayoutState>
   )

@@ -1,10 +1,11 @@
-import React, { useContext } from "react"
+import React, { useContext } from "react";
 
 // Context
-import LayoutContext from "../../context/layout/LayoutContext"
+import LayoutContext from "../../context/layout/LayoutContext";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
-  const { isOpen, toggleSidebar } = useContext(LayoutContext)
+  const { isOpen, toggleSidebar } = useContext(LayoutContext);
 
   return (
     <div
@@ -15,67 +16,70 @@ const Sidebar = () => {
       } overflow-auto border-b-0 z-10 transition-all duration-300 ease-in`}
     >
       {/* Sidebar Header */}
-      <div className='bg-primary h-20 w-full flex justify-between md:justify-center px-6 items-center border-none relative'>
-        <h3 className='text-xl text-center uppercase text-white font-bold'>
+      <div className="bg-primary h-20 w-full flex justify-between md:justify-center px-6 items-center border-none relative">
+        <Link
+          to="/"
+          className="text-xl text-center uppercase text-white font-light"
+        >
           Apotek Natsepa
-        </h3>
+        </Link>
         <span
-          className='fas fa-times sm:block md:hidden cursor-pointer'
+          className="fas fa-times sm:block md:hidden cursor-pointer"
           style={{ color: "#fff" }}
           onClick={() => toggleSidebar(!isOpen)}
         ></span>
       </div>
 
       {/* Sidebar Content */}
-      <ul className='m-6' id='sidebar'>
-        <li className='sidebar-item'>
-          <span className='sidebar-item-icon fas fa-chart-line'></span>
-          <a href='#!'>Dashboard</a>
+      <ul className="m-6" id="sidebar">
+        <li className="sidebar-item">
+          <span className="sidebar-item-icon fas fa-chart-line"></span>
+          <a href="#!">Dashboard</a>
         </li>
-        <li className='sidebar-item'>
+        <li className="sidebar-item">
           <div>
-            <span className='sidebar-item-icon fas fa-edit'></span>
-            <a href='#!'>Appointment</a>
+            <span className="sidebar-item-icon fas fa-edit"></span>
+            <a href="#!">Appointment</a>
           </div>
-          <span className='fas fa-times'></span>
+          <span className="fas fa-times"></span>
         </li>
-        <li className='sidebar-item'>
-          <span className='sidebar-item-icon fas fa-stethoscope'></span>
-          <a href='#!'>Prescription</a>
+        <li className="sidebar-item">
+          <span className="sidebar-item-icon fas fa-stethoscope"></span>
+          <a href="#!">Prescription</a>
         </li>
-        <li className='sidebar-item'>
-          <span className='sidebar-item-icon fas fa-users'></span>
-          <a href='#!'>Patient</a>
+        <li className="sidebar-item">
+          <span className="sidebar-item-icon fas fa-users"></span>
+          <a href="#!">Patient</a>
         </li>
-        <li className='sidebar-item'>
-          <span className='sidebar-item-icon fas fa-bed'></span>
-          <a href='#!'>Bed Allotment</a>
+        <li className="sidebar-item">
+          <span className="sidebar-item-icon fas fa-bed"></span>
+          <a href="#!">Bed Allotment</a>
         </li>
-        <li className='sidebar-item'>
-          <span className='sidebar-item-icon fas fa-tint'></span>
+        <li className="sidebar-item">
+          <span className="sidebar-item-icon fas fa-tint"></span>
 
-          <a href='#!'>Blood Bank</a>
+          <a href="#!">Blood Bank</a>
         </li>
-        <li className='sidebar-item'>
-          <span className='sidebar-item-icon fas fa-clipboard'></span>
-          <a href='#!'>Report</a>
+        <li className="sidebar-item">
+          <span className="sidebar-item-icon fas fa-clipboard"></span>
+          <a href="#!">Report</a>
         </li>
-        <li className='sidebar-item'>
-          <span className='sidebar-item-icon fas fa-credit-card'></span>
+        <li className="sidebar-item">
+          <span className="sidebar-item-icon fas fa-credit-card"></span>
 
-          <a href='#!'>Payroll</a>
+          <a href="#!">Payroll</a>
         </li>
-        <li className='sidebar-item'>
-          <span className='sidebar-item-icon fas fa-comments'></span>
-          <a href='#!'>Message</a>
+        <li className="sidebar-item">
+          <span className="sidebar-item-icon fas fa-comments"></span>
+          <a href="#!">Message</a>
         </li>
-        <li className='sidebar-item'>
-          <span className='sidebar-item-icon fas fa-user'></span>
-          <a href='#!'>Profile</a>
+        <li className="sidebar-item">
+          <span className="sidebar-item-icon fas fa-user"></span>
+          <Link to="/profile">Profile</Link>
         </li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

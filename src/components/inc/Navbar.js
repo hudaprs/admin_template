@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import { Link } from "react-router-dom"
 
 // Context
 import LayoutContext from "../../context/layout/LayoutContext"
@@ -51,12 +52,12 @@ const Navbar = () => {
                 <span className='fas fa-user fa-6x text-white'></span>
                 {/* Actions */}
                 <div className='mr-2 w-full flex justify-between'>
-                  <a
-                    href='#!'
+                  <Link
+                    to='/profile'
                     className='border p-2 transition duration-300 ease-in-out hover:text-primary hover:bg-white'
                   >
                     Profile
-                  </a>
+                  </Link>
                   <a
                     href='#!'
                     className='border p-2 transition duration-300 ease-in-out hover:text-primary hover:bg-white'
